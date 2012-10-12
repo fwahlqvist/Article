@@ -50,8 +50,8 @@ class Article implements InputFilterAwareInterface
                 'filters' => array(
                     array('name' => 'StripTags',
                         'options' => array(
-                            'allowTags' => array('p','strong','em','u','h1','h2','h3','h4','h5','h6','img','li','ol','ul','span','div','br','ins','del', 'a','pre', '<!--', '-->'),
-                            'allowAttribs' => array('href', 'title', 'src'),
+                            'allowTags' => array('p','strong','em','u','h1','h2','h3','h4','h5','h6','img','li','ol','ul','span','div','br','ins','del', 'a','pre', '<!--', '-->',),
+                            'allowAttribs' => array('href', 'title', 'src',),
                         )),
                     array('name' => 'StringTrim'),
                 ),
