@@ -19,12 +19,13 @@ class ArticleForm extends Form
             ),    
         ));
         $this->add(array(
-            'name' => 'artist',
+            'name' => 'content',
             'attributes' => array(
-                'type' => 'text',
+                'type' => 'textarea',
+                'rows' => 10,
             ),
             'options' => array(
-                'label' => 'Artist',
+                'label' => 'Content',
             ),
         ));
         $this->add(array(

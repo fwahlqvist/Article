@@ -10,14 +10,14 @@ use Zend\InputFilter\InputFilterInterface;
 class Article implements InputFilterAwareInterface
 {
     public $id;
-    public $artist;
+    public $content;
     public $title;
     protected $inputFilter;
     
     public function exchangeArray($data)
     {
         $this->id       = (isset($data['id'])) ? $data['id'] : null;
-        $this->artist   = (isset($data['artist'])) ? $data['artist'] : null;
+        $this->content   = (isset($data['content'])) ? $data['content'] : null;
         $this->title    = (isset($data['title'])) ? $data['title'] : null;
     }
     
@@ -45,10 +45,14 @@ class Article implements InputFilterAwareInterface
                 ),
             )));
             $inputFilter->add($factory->createInput(array(
-                'name'=> 'artist',
+                'name'=> 'content',
                 'required' => true,
                 'filters' => array(
-                    array('name' => 'StripTags'),
+                    array('name' => 'StripTags',
+                        'options' => array(
+                            'allowTags' => array('p','strong','em','u','h1','h2','h3','h4','h5','h6','img','li','ol','ul','span','div','br','ins','del', 'a','pre', '<!--', '-->'),
+                            'allowAttribs' => array('href', 'title', 'src'),
+                        )),
                     array('name' => 'StringTrim'),
                 ),
                 'validators' => array(
@@ -57,7 +61,7 @@ class Article implements InputFilterAwareInterface
                         'options' => array(
                             'encoding' => 'UTF-8',
                             'min' => 1,
-                            'max' => 100,
+                            'max' => 65000,
                         ),
                     ),
                 ),

@@ -46,7 +46,7 @@ class ArticleTable extends AbstractTableGateway
     public function saveArticle(Article $article)
     {
         $data = array(
-            'artist' => $article->artist,
+            'content' => $article->content,
             'title' =>  $article->title,
         );
         

@@ -13,14 +13,14 @@ $this->headTitle($title);
 <table class="table">
     <tr>
         <th>Title</th>
-        <th>Artist</th>
+        <th>Content</th>
         <th>&nbsp;</th>
     </tr>
     
    <?php foreach ($articles as $article) : ?>
     <tr>
         <td><?php echo $this->escapeHtml($article->title);?></td>
-        <td><?php echo $this->escapeHtml($article->artist);?></td>
+        <td><?php echo $article->content; ?></td>
         
         <td>
             <a href="<?php echo $this->url('article',
