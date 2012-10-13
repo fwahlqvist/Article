@@ -96,6 +96,10 @@ class ArticleController extends AbstractActionController
         );
     }
     
+    
+ 
+    
+    
     public function deleteAction()
     {
         $id = (int) $this->params()->fromRoute('id', 0);
