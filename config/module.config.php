@@ -12,10 +12,10 @@ return array(
           'article' => array(
               'type' => 'segment',
               'options' => array(
-                  'route' => '/article[/:action][/:id]',
+                  'route' => '/article[/:action][/:title]',
                   'constraints' => array(
                       'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                      'id' => '[0-9]+',
+                      //'title' => '[a-zA-Z][a-zA-Z0-9_-]*',
                   ),
                   'defaults' => array(
                       'controller' => 'Article\Controller\Article',

@@ -26,18 +26,18 @@ class ArticleTable extends AbstractTableGateway
         return $resultSet;
     }
     
-    public function getArticle($id)
+    public function getArticle($title)
     {
-        $id = (int) $id;
+        
         
         $rowset = $this->select(array(
-            'id' => $id,
+            'title' => $title,
         ));
         
         $row = $rowset->current();
         
         if (!$row) {
-            throw new \Exception ("Could not find row $id");
+            throw new \Exception ("Could not find row $title");
         }
         
         return $row;
@@ -49,16 +49,13 @@ class ArticleTable extends AbstractTableGateway
             'content' => $article->content,
             'title' =>  $article->title,
         );
-        
+        $title = $article->title;
         $id = (int) $article->id;
         
         if($id == 0) {
             $this->insert($data);
-        } elseif($this->getArticle($id)) {
-            $this->update(
-                    $data,
-                    array(
-                        'id' => $id,
+        } elseif($this->getArticle($title)) {
+            $this->update($data, array('id' => $id,
                    )
               );
         } else {
@@ -66,10 +63,10 @@ class ArticleTable extends AbstractTableGateway
         } 
     }
     
-    public function deleteArticle($id)
+    public function deleteArticle($title)
     {
         $this->delete(array(
-            'id' => $id,
+            'title' => $title,
         ));
     }
 }

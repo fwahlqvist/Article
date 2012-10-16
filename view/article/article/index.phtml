@@ -24,11 +24,11 @@ $this->headTitle($title);
         
         <td>
             <a href="<?php echo $this->url('article',
-                    array('action' => 'view', 'id' => $article->id ));?>">View</a>
+                    array('action' => 'view', 'title' => $article->title ));?>">View</a>
             <a href="<?php echo $this->url('article',
-                    array('action' => 'edit', 'id' => $article->id ));?>">Edit</a>
+                    array('action' => 'edit', 'title' => $article->title ));?>">Edit</a>
             <a href="<?php echo $this->url('article',
-                    array('action' => 'delete', 'id' => $article->id ));?>">Delete</a>
+                    array('action' => 'delete', 'title' => $article->title ));?>">Delete</a>
             
         </td>
     </tr>
