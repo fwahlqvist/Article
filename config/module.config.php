@@ -12,7 +12,7 @@ return array(
           'article' => array(
               'type' => 'segment',
               'options' => array(
-                  'route' => '/article[/:action][/:title]',
+                  'route' => '/article[/:action][/:id]',
                   'constraints' => array(
                       'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                       //'title' => '[a-zA-Z][a-zA-Z0-9_-]*',

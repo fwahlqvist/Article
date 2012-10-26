@@ -30,15 +30,15 @@ class ArticleController extends AbstractActionController
     
     public function viewAction()
     {  
-        $title = $this->params()->fromRoute('title', '');
-        if(!$title) {
+        $id = $this->params()->fromRoute('id', 0);
+        if(!$id) {
             return $this->redirect()->toRoute('article');
         }   
     return array(
-            'article' => $this->getArticleTable()->getArticle($title),
+            'article' => $this->getArticleTable()->getArticle($id),
         );
-        
-    }    
+    }
+    
     public function addAction()
     {
         $form = new ArticleForm();
@@ -64,14 +64,14 @@ class ArticleController extends AbstractActionController
     
     public function editAction()
     {
-        $title = $this->params()->fromRoute('title', '');
-        if(!$title) {
+        $id = (int) $this->params()->fromRoute('id', 0);
+        if(!$id) {
             return $this->redirect()->toRoute('article', array(
                 'action' => 'add'
             ));
         }
         
-        $article = $this->getArticleTable()->getArticle($title);
+        $article = $this->getArticleTable()->getArticle($id);
         
         $form = new ArticleForm();
         $form->bind($article);
@@ -91,19 +91,15 @@ class ArticleController extends AbstractActionController
         }
         
         return array(
-            'title' => $title,
+            'id' => $id,
             'form' => $form,
         );
     }
     
-    
- 
-    
-    
     public function deleteAction()
     {
-        $title = $this->params()->fromRoute('title', '');
-        if(!$title) {
+        $id = (int) $this->params()->fromRoute('id', 0);
+        if(!$id) {
             return $this->redirect()->toRoute('article');
         }
         
@@ -112,8 +108,8 @@ class ArticleController extends AbstractActionController
             $del = $request->getPost('del', 'No');
             
             if ($del == 'Yes') {
-                $title = $request->getPost('title');
-                $this->getArticleTable()->deleteArticle($title);
+                $id = (int) $request->getPost('id');
+                $this->getArticleTable()->deleteArticle($id);
             }
             
             // redirect to list of articles
@@ -121,8 +117,8 @@ class ArticleController extends AbstractActionController
         }
         
         return array(
-            'title' => $title,
-            'article' => $this->getArticleTable()->getArticle($title)
+            'id' => $id,
+            'article' => $this->getArticleTable()->getArticle($id)
         );      
     }
     
