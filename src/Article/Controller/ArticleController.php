@@ -28,6 +28,17 @@ class ArticleController extends AbstractActionController
         ));
     }
     
+    public function viewAction()
+    {  
+        $id = $this->params()->fromRoute('id', 0);
+        if(!$id) {
+            return $this->redirect()->toRoute('article');
+        }   
+    return array(
+            'article' => $this->getArticleTable()->getArticle($id),
+        );
+    }
+    
     public function addAction()
     {
         $form = new ArticleForm();
