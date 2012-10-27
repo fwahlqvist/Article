@@ -1,5 +1,31 @@
 <?php
 // module/Article/view/article/article/add.phtml
+if (!empty($_REQUEST['content'])) {
+	echo '<pre>';
+	print_r($_REQUEST);
+	echo '</pre>';
+}
+/*-----------------Aloha Editor---------------------------*/
+?>
+<!-- load the jQuery and require.js libraries -->
+              <script type="text/javascript" src="http://cdn.aloha-editor.org/latest/lib/vendor/jquery-1.7.2.js"></script>
+              <script type="text/javascript" src="http://cdn.aloha-editor.org/latest/lib/require.js"></script>
+ 
+              <!-- load the Aloha Editor core and some plugins -->
+              <script src="http://cdn.aloha-editor.org/latest/lib/aloha.js"
+                                   data-aloha-plugins="common/ui,
+                                                        common/format,
+                                                        common/list,
+                                                        common/link,
+                                                        common/highlighteditables">
+              </script>
+               
+              <!-- load the Aloha Editor CSS styles -->
+              <link href="http://cdn.aloha-editor.org/latest/css/aloha.css" rel="stylesheet" type="text/css" />
+<?php
+/*-----------------Aloha Editor---------------------------*/
+
+
 
 $title = 'Add a new article';
 $this->headTitle($title);
@@ -18,3 +44,16 @@ echo $this->formSubmit($form->get('submit'));
 echo $this->form()->CloseTag();
 
 // echo $this->formCollection($form);
+?>
+
+<script type="text/javascript">
+	Aloha.ready( function(){
+		var $ = Aloha.jQuery;
+		$('#content').aloha();
+
+		$('#submitForm').click(function(){
+			$("form:first").submit(); 
+		});
+	});
+</script>
+<?php

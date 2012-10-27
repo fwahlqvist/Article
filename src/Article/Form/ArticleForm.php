@@ -18,11 +18,15 @@ class ArticleForm extends Form
                 'type' => 'hidden',
             ),    
         ));
+        
+       
+        
         $this->add(array(
             'name' => 'content',
             'attributes' => array(
                 'type' => 'textarea',
                 'rows' => 10,
+                'id'   => 'content',
             ),
             'options' => array(
                 'label' => 'Content',
