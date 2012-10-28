@@ -36,6 +36,8 @@ class ArticleForm extends Form
             'name' => 'title',
             'attributes' => array(
                 'type' => 'text',
+                'id'   => 'title',
+                'class'=> 'editable',
             ),
             'options' => array(
                 'label' => 'Title',

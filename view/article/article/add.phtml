@@ -1,10 +1,5 @@
 <?php
-// module/Article/view/article/article/add.phtml
-if (!empty($_REQUEST['content'])) {
-	echo '<pre>';
-	print_r($_REQUEST);
-	echo '</pre>';
-}
+
 /*-----------------Aloha Editor---------------------------*/
 ?>
 <!-- load the jQuery and require.js libraries -->
@@ -49,8 +44,9 @@ echo $this->form()->CloseTag();
 <script type="text/javascript">
 	Aloha.ready( function(){
 		var $ = Aloha.jQuery;
-		$('#content').aloha();
-
+		$('#title').aloha();
+                $('#content').aloha();
+                
 		$('#submitForm').click(function(){
 			$("form:first").submit(); 
 		});
