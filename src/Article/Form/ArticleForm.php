@@ -11,6 +11,8 @@ class ArticleForm extends Form
         // we want to ignore named passed
         parent::__construct('article');
         $this->setAttribute('method', 'post');
+        $this->setAttribute('data-ajax', 'false');
+        
         
         $this->add(array(
             'name' => 'id',
