@@ -16,7 +16,7 @@ $url = $this->url('article', array(
     'title' => $this->title,
 ));
 ?>
-<form action="<?php echo $url; ?>" method="post">
+<form action="<?php echo $url; ?>" method="post" data-ajax="false">
     <div>
         <input type="hidden" name="title" value="<?php echo $this->escapeHtml($article->title); ?>" />
         <input type="submit" name="del" value="Yes" />
