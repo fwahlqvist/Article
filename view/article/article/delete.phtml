@@ -13,12 +13,12 @@ $this->headTitle($title);
 <?php 
 $url = $this->url('article', array(
     'action' => 'delete',
-    'title' => $this->title,
+    'id' => $this->id,
 ));
 ?>
 <form action="<?php echo $url; ?>" method="post" data-ajax="false">
     <div>
-        <input type="hidden" name="title" value="<?php echo $this->escapeHtml($article->title); ?>" />
+        <input type="hidden" name="id" value="<?php echo $this->escapeHtml($article->id); ?>" />
         <input type="submit" name="del" value="Yes" />
         <input type="submit" name="del" value="No" />
     </div>
