@@ -3,6 +3,8 @@
 namespace Article\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\Stdlib\ResponseInterface as Response;
+use Zend\Stdlib\Parameters;
 use Zend\View\Model\ViewModel;
 use Article\Model\Article;
 use Article\Form\ArticleForm;

@@ -3,10 +3,10 @@
 return array(
   'controllers' => array(
       'invokables' => array(
-          'Article\Controller\Article' => 'Article\Controller\ArticleController',
+          'article' => 'Article\Controller\ArticleController',
       ),
   ),
-    
+ /*   
   'router' => array(
       'routes' => array(
           'article' => array(
@@ -24,8 +24,67 @@ return array(
               ),
           ),
       ),
-  ), 
+  ),  
+  */
     
+  'router' => array(
+      'routes' => array(
+          'article' => array(
+              'type' => 'Literal',
+              'prioirty' => 1000,
+              'options' => array(
+                  'route' => '/article',
+                  'defaults' => array(
+                      'controller' => 'article',
+                      'action' => 'index',
+                  ),
+              ),
+              'may_terminate' => 'true',
+              'child_routes' => array(
+                  'view' => array(
+                      'type' => 'segment',
+                      'options' => array(
+                          'route' => '/view[/:id]',
+                          'defaults' => array(
+                              'controller' => 'article',
+                              'action' => 'view',
+                          ),
+                      ), 
+                  ),
+                  'add' => array(
+                      'type' =>'Literal',
+                      'options' => array(
+                          'route' => '/add',
+                          'defaults' => array(
+                              'controller' => 'article',
+                              'action' => 'add',
+                          ),
+                      ),
+                  ),
+                  'edit' => array(
+                      'type' => 'segment',
+                      'options' => array(
+                          'route' => '/edit[/:id]',
+                          'defaults' => array(
+                              'controller' => 'article',
+                              'action' => 'edit',
+                          ),
+                      ),
+                  ),
+                  'delete' => array(
+                      'type' => 'segment',
+                      'options' => array(
+                          'route' => '/delete[/:id]',
+                          'defaults' => array(
+                              'controller' => 'article',
+                              'action' => 'delete',
+                          ),
+                      ),
+                  ),
+              ),    
+          ),
+      ),
+  ),    
   'view_manager' => array(
       'template_path_stack' => array(
           'article' => __DIR__ . '/../view',

@@ -8,13 +8,15 @@ $this->headTitle($title);
 
 <?php 
 $form = $this->form;
-$form->setAttribute('action', $this->url(
-        'article', 
-        array(
-            'action' => 'edit',
-            'id' => $this->id,
-        )
-));
+//$form->setAttribute('action', $this->url(
+//        'article', 
+//        array(
+//            'action' => 'edit',
+//            'id' => $this->id,
+//        )
+//));
+//<form action="<?php echo $article->id; ? >" method="post" data-ajax="false">
+$form->setAttribute('action', $this->id);
 $form->prepare();
 
 echo $this->form()->openTag($form);

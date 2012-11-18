@@ -10,13 +10,9 @@ $this->headTitle($title);
     '<?php echo $this->escapeHtml($article->title); ?>'?
 </p>
 
-<?php 
-$url = $this->url('article', array(
-    'action' => 'delete',
-    'id' => $this->id,
-));
-?>
-<form action="<?php echo $url; ?>" method="post" data-ajax="false">
+
+
+<form action="<?php echo $article->id; ?>" method="post" data-ajax="false">
     <div>
         <input type="hidden" name="id" value="<?php echo $this->escapeHtml($article->id); ?>" />
         <input type="submit" name="del" value="Yes" />
