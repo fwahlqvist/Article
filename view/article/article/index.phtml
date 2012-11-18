@@ -21,7 +21,6 @@ $this->headTitle($title);
     <tr>
         <td><?php echo $this->escapeHtml($article->title);?></td>
         <td><?php echo $article->content; ?></td>
-        <td><?php echo $article->id; ?></td>
         
         <td>
             <a href="article/view/<?php echo $article->id;?>">View</a>
