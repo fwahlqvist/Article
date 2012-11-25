@@ -6,10 +6,11 @@ $this->headTitle($title);
 ?>
 
 <h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php IF($this->zfcUserIdentity()): ?>
 <p>
     <a href="<?php echo $this->url('article/add');?>">Add new Article</a>
 </p>
-
+<?php ENDIF ?>
 <table class="table">
     <tr>
         <th>Title</th>
@@ -24,8 +25,10 @@ $this->headTitle($title);
         
         <td>
             <a href="article/view/<?php echo $article->id;?>">View</a>
+            <?php IF($this->zfcUserIdentity()): ?>
             <a href="article/edit/<?php echo $article->id;?>">Edit</a>
             <a href="article/delete/<?php echo $article->id;?>">Delete</a>
+            <?php ENDIF ?>
         </td>
     </tr>
    <?php endforeach; ?>
