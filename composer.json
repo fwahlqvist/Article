@@ -1,0 +1,28 @@
+{
+    "name": "fwahlqvist/Artile",
+    "description": "Article module for zf2",
+    "type": "library",
+    "keywords": [
+        "zf2"
+    ],
+    "homepage": "https://github.com/fwahlqvist/Article",
+    "authors": [
+        {
+            "name": "Fredrik Wahlqvist",
+            "email": "fwahlqvist@gmail.com",
+            "homepage": "http://wahlqvist.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Article": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
+    }
+}
