@@ -1,7 +1,7 @@
 <?php
 // module/Article/view/article/article/index.phtml:
 
-$title = 'My Articles';
+$title = 'Ramblings, thoughts and other ideas';
 $this->headTitle($title);
 ?>
 
@@ -11,24 +11,23 @@ $this->headTitle($title);
     <a href="<?php echo $this->url('article/add');?>">Add new Article</a>
 </p>
 <?php ENDIF ?>
-<table class="table">
-    <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th>&nbsp;</th>
-    </tr>
-    
+<article>
+      
    <?php foreach ($articles as $article) : ?>
-    <tr>
-        <td><?php echo $this->escapeHtml($article->title);?></td>
-        <td><?php echo $article->content; ?></td>
+    <section>
+        <article>
+        <a href="article/view/<?php echo $article->id;?>"><?php echo $this->escapeHtml($article->title);?></a>
+        <?php echo $article->content; ?>
         
-        <td>
+        
             <a href="article/view/<?php echo $article->id;?>">View</a>
             <?php IF($this->zfcUserIdentity()): ?>
             <a href="article/edit/<?php echo $article->id;?>">Edit</a>
             <a href="article/delete/<?php echo $article->id;?>">Delete</a>
             <?php ENDIF ?>
-        </td>
-    </tr>
+        </article>
+        <br />
+    </section>
    <?php endforeach; ?>
+      
+</article>
