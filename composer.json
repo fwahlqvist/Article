@@ -3,7 +3,7 @@
     "description": "Article module for zf2",
     "type": "library",
     "keywords": [
-        "zf2"
+        "zf2",
         "Article"
     ],
     "homepage": "https://github.com/fwahlqvist/Article",
