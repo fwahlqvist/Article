@@ -4,17 +4,19 @@
     "type": "library",
     "keywords": [
         "zf2"
+        "Article"
     ],
     "homepage": "https://github.com/fwahlqvist/Article",
     "authors": [
         {
             "name": "Fredrik Wahlqvist",
             "email": "fwahlqvist@gmail.com",
-            "homepage": "http://wahlqvist.co.uk"
+            "homepage": "http://www.wahlqvist.co.uk"
         }
     ],
     "require": {
         "php": ">=5.3.3",
+        "fwahlqvist/wdev-markdown": "dev-master",
         "zendframework/zendframework": "2.*"
     },
     "autoload": {

@@ -4,7 +4,7 @@
 $title = 'Add a new article';
 $this->headTitle($title);
 ?>
-<h1><?php echo $this->escapeHtml($title); ?></h1>
+<h1><?php echo $this->Markdown($title); ?></h1>
 <?php
 $form = $this->form;
 $form->setAttribute('action', $this->url('article/add'));
