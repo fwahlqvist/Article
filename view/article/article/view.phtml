@@ -5,6 +5,6 @@ $title = $this->escapeHtml($article->title);
 $this->headTitle($title);
 ?>
 
-<h1><?php echo $this->Markdown($article->title);?></h1>
+<h1><?php echo $this->WdevMarkdown($article->title);?></h1>
 
-<?php echo $this->Markdown($article->content); ?>
+<?php echo $this->WdevMarkdown($article->content); ?>

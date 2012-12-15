@@ -4,7 +4,7 @@
 $title = 'Ramblings, thoughts and other ideas';
 $this->headTitle($title);
 ?>
- <?php $this->Markdown(); ?>
+ <?php $this->WdevMarkdown(); ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <?php IF($this->zfcUserIdentity()): ?>
 <p>
@@ -16,9 +16,9 @@ $this->headTitle($title);
    <?php foreach ($articles as $article) : ?>
     <section>
         <article>
-        <a href="article/view/<?php echo $article->id;?>"><?php echo $this->Markdown($article->title);?></a>
+        <a href="article/view/<?php echo $article->id;?>"><?php echo $this->WdevMarkdown($article->title);?></a>
         
-            <?php $this->Markdown($article->content); ?>
+            <?php $this->WdevMarkdown($article->content); ?>
         
         
             <a href="article/view/<?php echo $article->id;?>">View</a>
